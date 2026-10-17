@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Thực hành] CSS | grid-gap Property</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-container">
+        <header class="main-header">
+            <h1>Thuộc tính <code>grid-gap</code> trong CSS Grid</h1>
+            <p class="subtitle">Thực hành thiết lập khoảng cách giữa hàng và cột trong bố cục lưới</p>
+        </header>
+
+        <!-- Khái niệm lý thuyết -->
+        <section class="card theory-card">
+            <h2>1. Lý thuyết & Cú pháp</h2>
+            <p>Thuộc tính <code>grid-gap</code> đặt kích thước của khoảng cách giữa các hàng và các cột trong bố cục lưới (CSS Grid).</p>
+            <p>Nó là một thuộc tính viết tắt (shorthand) cho hai thuộc tính:</p>
+            <ul class="bullet-list">
+                <li><code>grid-row-gap</code>: Đặt kích thước khoảng cách giữa các hàng (mặc định: <code>0</code>).</li>
+                <li><code>grid-column-gap</code>: Đặt kích thước khoảng cách giữa các cột (mặc định: <code>0</code>).</li>
+            </ul>
+            <div class="syntax-box">
+                <span class="syntax-label">Cú pháp viết tắt:</span>
+                <code>grid-gap: &lt;grid-row-gap&gt; &lt;grid-column-gap&gt;;</code>
+            </div>
+            <div class="note-box">
+                <strong>💡 Lưu ý CSS hiện đại:</strong> Trong CSS hiện đại, thuộc tính <code>gap</code> được khuyến khích sử dụng thay cho <code>grid-gap</code> (ví dụ: <code>gap: 30px 10px;</code>). Thuộc tính <code>gap</code> ngắn gọn hơn và hoạt động tốt trên cả <strong>CSS Grid</strong> lẫn <strong>Flexbox</strong>.
+            </div>
+        </section>
+
+        <!-- Ví dụ 1 -->
+        <section class="card example-card" id="vi-du-1">
+            <div class="example-header">
+                <div class="badge">Ví dụ 1</div>
+                <h2>Thiết lập khoảng cách giữa hàng và cột bằng nhau</h2>
+            </div>
+            <p class="example-desc">
+                Sử dụng <code>grid-gap: 20px;</code> để tạo khoảng cách đều nhau <strong>20px</strong> cho cả hàng và cột.
+                (Tương đương với <code>grid-row-gap: 20px; grid-column-gap: 20px;</code>)
+            </p>
+
+            <div class="code-preview">
+                <div class="code-col">
+                    <span class="code-title">CSS:</span>
+                    <pre><code>.grid-container-1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px; /* Hàng và cột đều 20px */
+}
+.grid-container-1 div {
+    background-color: lightblue;
+    padding: 20px;
+    text-align: center;
+}</code></pre>
+                </div>
+                <div class="demo-col">
+                    <span class="demo-title">Kết quả hiển thị:</span>
+                    <div class="grid-container-1">
+                        <div>Ô 1</div>
+                        <div>Ô 2</div>
+                        <div>Ô 3</div>
+                        <div>Ô 4</div>
+                    </div>
+                    <div class="annotation">
+                        <span>↔ Khoảng cách cột: <strong>20px</strong></span> | 
+                        <span>↕ Khoảng cách hàng: <strong>20px</strong></span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="example1.html" class="btn-link" target="_blank">🔗 Mở trang riêng Ví dụ 1 (example1.html)</a>
+            </div>
+        </section>
+
+        <!-- Ví dụ 2 -->
+        <section class="card example-card" id="vi-du-2">
+            <div class="example-header">
+                <div class="badge badge-green">Ví dụ 2</div>
+                <h2>Thiết lập khoảng cách hàng và cột khác nhau</h2>
+            </div>
+            <p class="example-desc">
+                Sử dụng <code>grid-gap: 30px 10px;</code>: giá trị đầu tiên (<strong>30px</strong>) cho hàng (<code>grid-row-gap</code>), giá trị thứ hai (<strong>10px</strong>) cho cột (<code>grid-column-gap</code>).
+            </p>
+
+            <div class="code-preview">
+                <div class="code-col">
+                    <span class="code-title">CSS:</span>
+                    <pre><code>.grid-container-2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px 10px; /* Hàng 30px, Cột 10px */
+}
+.grid-container-2 div {
+    background-color: lightgreen;
+    padding: 20px;
+    text-align: center;
+}</code></pre>
+                </div>
+                <div class="demo-col">
+                    <span class="demo-title">Kết quả hiển thị:</span>
+                    <div class="grid-container-2">
+                        <div>Ô 1</div>
+                        <div>Ô 2</div>
+                        <div>Ô 3</div>
+                        <div>Ô 4</div>
+                        <div>Ô 5</div>
+                        <div>Ô 6</div>
+                    </div>
+                    <div class="annotation">
+                        <span>↔ Khoảng cách cột: <strong>10px</strong></span> | 
+                        <span>↕ Khoảng cách hàng: <strong>30px</strong></span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="example2.html" class="btn-link" target="_blank">🔗 Mở trang riêng Ví dụ 2 (example2.html)</a>
+            </div>
+        </section>
+
+        <!-- Bảng tổng hợp -->
+        <section class="card summary-card">
+            <h2>3. Bảng tổng hợp so sánh</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cách viết</th>
+                            <th>Khoảng cách hàng (Row Gap)</th>
+                            <th>Khoảng cách cột (Column Gap)</th>
+                            <th>Giải thích</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>grid-gap: 20px;</code></td>
+                            <td>20px</td>
+                            <td>20px</td>
+                            <td>1 giá trị: áp dụng cho cả hàng và cột</td>
+                        </tr>
+                        <tr>
+                            <td><code>grid-gap: 30px 10px;</code></td>
+                            <td>30px</td>
+                            <td>10px</td>
+                            <td>2 giá trị: giá trị 1 là hàng, giá trị 2 là cột</td>
+                        </tr>
+                        <tr>
+                            <td><code>gap: 30px 10px;</code></td>
+                            <td>30px</td>
+                            <td>10px</td>
+                            <td>Cú pháp chuẩn hiện đại (hỗ trợ cả Grid và Flexbox)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer class="main-footer">
+            <p>Bài thực hành CSS Grid | <strong>grid-gap Property</strong></p>
+        </footer>
+    </div>
+</body>
+</html>
